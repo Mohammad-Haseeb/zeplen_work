@@ -43,4 +43,4 @@ jobs:
       
  # Deploy Surge
     - name: Deploy React App to Surge
-      run: surge ./build zeplenWork.surge.sh --token ${{ secrets.SECRET_TOKEN_App}}
+      run: surge ./build zeplenWork.surge.sh --token ${{ secrets.SECRET_TOKEN_Zeplen}}
