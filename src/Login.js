@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Login.css";
-import Forms from './From';
+import Forms from './Forms';
 
 function Login(){
     

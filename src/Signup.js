@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component} from "react";
 import "./App.css";
 import {  useNavigate } from "react-router-dom";
 
@@ -7,8 +7,8 @@ import {  useNavigate } from "react-router-dom";
 let LoginButton=()=>{
   let navigate =useNavigate();
   return(
-  <div className="login">
-  <button onClick={()=>{navigate('login')}}>Login in Here</button>
+  <div className="Login">
+  <button onClick={()=>{navigate('Login')}}>Login in Here</button>
 
 </div>
 );
