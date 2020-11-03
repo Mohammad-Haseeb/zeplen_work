@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+body{
+    background-color: #a62556;
+}
+.wrapper {
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .form-wrapper {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
+  }
+  h1 {
+    text-align: center;
+    width: auto;
+    
+    font-weight: lighter;
+    font-family: 'Roboto Slab', serif,sans-serif,Georgia, 'Times New Roman', Times, serif;
+  }
+  .CenterilzeFields{
+    background-color:#ffffff;
+   min-width: auto;
+    padding-left: 10%;
+    max-width: auto;
+    max-height: auto;
+    height: 200px;
+    margin: 0 auto;
+  }
+  input{
+    margin-top: 5px;
+  }
+  input[type=submit]{
+    margin:0 auto;
+    width: 70px;
+    background-color:gray;
+    color: blanchedalmond;
+    font-size: large;
+    padding: 3px;
+    font-family: 'Roboto Slab', serif,sans-serif,Georgia, 'Times New Roman', Times, serif;
+  }
+  @media (min-width:679px) and (max-width:1023px){
+    .form-wrapper{
+   
+     width: 65%;
+   
+     
+    }
+    
+    
+ }
+ @media  (max-width:1024px){
+   .form-wrapper{
+     width: 55%;
+     
+    
+    
+ 
+   }
+ }
+ @media  (max-width:768px){
+   .form-wrapper{
+     width: 60%;
+    }
+    .CenterilzeFields{
+      width: 100%;
+      padding-left: 0%;
+      margin: 0;
+    }
+    
+  
+   }
