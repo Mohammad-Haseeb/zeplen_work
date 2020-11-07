@@ -1,6 +1,7 @@
 import React, { Component} from "react";
 import "./App.css";
 import {  useNavigate } from "react-router-dom";
+import firebase from './DataBaseStore/FirebaseConfig';
 
 
 
@@ -72,6 +73,14 @@ class Signup extends Component {
         Phone: ${this.state.phone}
         Password: ${this.state.password}
       `);
+      let UserObjet={
+        First_Name: this.state.firstName,
+        Last_Name: this.state.lastName,
+        Email: this.state.email,
+        Phone: this.state.phone,
+        Password: this.state.password
+       }
+       firebase.database().ref('users').push(UserObjet);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
