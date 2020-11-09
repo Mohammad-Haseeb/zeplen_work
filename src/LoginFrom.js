@@ -77,12 +77,13 @@ export default function Forms() {
    let navigate=useNavigate();
    const [Password, setPassword] = useState("")
    const Validate=()=>{
-    var str =  Password;
-if (str.match(/[a-z]/g) && str.match( 
-        /[A-Z]/g) && str.match( 
-        /[0-9]/g) && str.match( 
-        /[^a-zA-Z\d]/g) && str.length >= 8) {
-   
+    var strPassword =  Password;
+     
+if (strPassword.match(/[a-z]/g) && strPassword.match( 
+        /[A-Z]/g) && strPassword.match( 
+        /[0-9]/g) && strPassword.match( 
+        /[^a-zA-Z\d]/g) && strPassword.length >= 8) {
+             setID(ID);
           
         }
 else {
