@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
+import {  useNavigate } from "react-router-dom";
 
 
 
@@ -73,22 +74,24 @@ const useStyles = makeStyles((theme) => ({
 export default function Forms() {
   const classes = useStyles();
    const [ID, setID] = useState("");
+   let navigate=useNavigate();
    const [Password, setPassword] = useState("")
    const Validate=()=>{
-    var str =  Password
+    var str =  Password;
 if (str.match(/[a-z]/g) && str.match( 
         /[A-Z]/g) && str.match( 
         /[0-9]/g) && str.match( 
         /[^a-zA-Z\d]/g) && str.length >= 8) {
    
-    alert("Validate");
-    console.log(ID)
+          
         }
 else {
     
     alert("Invalid Password Must Contain number , symbol,upper and lower Case Characters.")
 }
 
+   
+    navigate('Reserver');
    }
   return (
      <>

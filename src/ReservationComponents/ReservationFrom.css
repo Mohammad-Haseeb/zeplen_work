@@ -11,23 +11,16 @@ body{
     align-items: center;
     
   }
-  .Loginform-wrapper {
+  .form-wrapper {
     width: 30%;
-    height: 70%;
-    max-height: auto;
+    height: 90%;
+    max-height:auto ;
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
     border-radius: 10px;
-    box-shadow: 0px 10px 50px #555;
+    box-shadow: 0px 10px 50px rgb(201, 115, 115);
     background-color: #ffffff;
-  }
-  h1 {
-    text-align: center;
-    width: auto;
-    
-    font-weight: lighter;
-    font-family: 'Roboto Slab', serif,sans-serif,Georgia, 'Times New Roman', Times, serif;
   }
   .CenterilzeFields{
     background-color:#ffffff;
@@ -38,16 +31,11 @@ body{
     height: 200px;
     margin: 0 auto;
   }
-  input{
-    margin-top: 5px;
-  }
-  input[type=submit]{
-    margin:0 auto;
-    width: 70px;
-    background-color:gray;
-    color: blanchedalmond;
-    font-size: large;
-    padding: 3px;
+  h1 {
+    text-align: center;
+    width: auto;
+    
+    font-weight: lighter;
     font-family: 'Roboto Slab', serif,sans-serif,Georgia, 'Times New Roman', Times, serif;
   }
   @media (min-width:679px) and (max-width:1023px){
@@ -81,3 +69,16 @@ body{
     
   
    }
+   input[type=submit]{
+    margin:0 auto;
+    display: block !important;
+    width: 70px;
+    background-color:gray;
+    color: blanchedalmond;
+    font-size: large;
+    padding: 3px;
+    font-family: 'Roboto Slab', serif,sans-serif,Georgia, 'Times New Roman', Times, serif;
+  }
+  .labeling{
+      font-size: medium;
+  }
