@@ -9,17 +9,13 @@ import idProvider from './DataGlobalization/DataProvider';
 
 function App() {
   const idOfUser= useState("No value");
-  function SentInvoices() {
-    return  <ReservationPage/>;
-  
-  }
   
   return (
     <idProvider.Provider value={idOfUser}>    
       <Routes>
       <Route path="/" element={<Signup />} />
       <Route path="Login" element={< Login/>} />
-      <Route path="Login/Reserver" element={<SentInvoices />} />
+      <Route path="Login/Reserver" element={<ReservationPage />} />
     </Routes>
     </idProvider.Provider>
 
