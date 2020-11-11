@@ -30,4 +30,40 @@ yarn add  history@next react-router-dom@next
 and  then Add App.js file in your application because All other files are attached with this file.
 And then also replace index.js file my indes.js with that i provide 
 
+
+
+## Guide to learn  Firebase querie
+if you want to add data with new rendom use can use:
+
+firebase.database().ref("players").push(data);
+
+if you want to add data with child you can use;
+
+firebase.database().ref("players").child("Nam").set(data);
+
+if you want to change data you can use:
+ firebase.database().ref('student/Nam').set(newData);
+
+if you want to load data only once at file loading time:
+
+firebase.database().ref('student').on(ce'value',function(data){
+      console.log(data.val())
+      
+          })
+
+if you want to load data only once at file loading time:
+
+firebase.database().ref('student').on('child_added',function(data){
+      console.log(data.val())
+      
+          })
+
+if you to  remove  data :
+
+firebase.database().ref('player').remove()
+
+
+
+
+
 If you have any query you can ask

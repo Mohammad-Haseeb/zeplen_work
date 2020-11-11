@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import {
   fade,
   
@@ -9,6 +9,7 @@ import {
 import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
 import {  useNavigate } from "react-router-dom";
+import idProvider from './DataGlobalization/DataProvider';
 
 
 
@@ -72,6 +73,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Forms() {
+  const GloballyIdSet = useContext(idProvider)
+
   const classes = useStyles();
    const [ID, setID] = useState("");
    let navigate=useNavigate();
@@ -84,6 +87,7 @@ if (strPassword.match(/[a-z]/g) && strPassword.match(
         /[0-9]/g) && strPassword.match( 
         /[^a-zA-Z\d]/g) && strPassword.length >= 8) {
              setID(ID);
+             GloballyIdSet[1](ID);
           
         }
 else {

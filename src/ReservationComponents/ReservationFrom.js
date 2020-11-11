@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import {
     fade,
     
@@ -15,7 +15,8 @@ import {
     KeyboardTimePicker,
     KeyboardDatePicker,
   } from '@material-ui/pickers';
-
+   import  idProvider from '../DataGlobalization/DataProvider';
+   import firebase from '../DataBaseStore/FirebaseConfig';
   
 
 
@@ -75,7 +76,9 @@ const BootstrapInput = withStyles((theme) => ({
   
 
 export default function Form(){
-    const classes = useStyles();
+  const GloballyId = useContext(idProvider);
+    
+  const classes = useStyles();
 
     
     const [selectedStartTime, setSelectedStartTime] = React.useState(new Date('2014-08-18T21:11:54'));
@@ -83,8 +86,8 @@ export default function Form(){
     const [selectedEndDate, setSelectedEndDate] = React.useState(new Date('2014-08-18T21:11:54'));
     let   [registrationNumber,setRegistrationNumber]=useState(897345);
     let [allotedNumber,setAllotedNumber]=useState(1); 
-       
-
+     let  IdTrimer = GloballyId[0].substring(0, GloballyId[0].length - 4);
+        
          
 
     const handleStartTimeChange = (date) => {
@@ -102,8 +105,19 @@ export default function Form(){
       e.preventDefault();
       setRegistrationNumber(++registrationNumber);
       setAllotedNumber(++allotedNumber);
-
+      let ResverstionInfo={
+        userMail:GloballyId[0],
+        userRegistrationNumber:registrationNumber,
+        userAllotedNumber:allotedNumber,
+        userStartTime:selectedStartTime.toDateString(),
+        userStartDate:selectedStartDate.toDateString(),
+        userEndDate:selectedEndDate.toDateString(),
+      }
+         if(IdTrimer!== "No v"){
+           firebase.database().ref("UserReservationInfo").child(IdTrimer).set(ResverstionInfo);
+         }
     }
+    
     return(
            <>
                  
