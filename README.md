@@ -1,4 +1,15 @@
-Material UI is created by Google.It's mostly  UI library  in market.
+## last implementation
+
+
+Removed firebase Realtime Database from this app.
+1) We removed firebase Initializtion
+2) In 2nd Step removed use of firebase from ResrvationFrom.js and Signup.js
+
+
+
+## Overview
+
+Material UI is created by Google.It's mostly used UI library  in market.
 I try to used Functional components it's being a new Approach.You can use it if you wanna adopt best practices of current React js community.
 
  Now I also used a React-routes to Attach and login page with Sign up because React Provides Signle Page Application.So, thats why we used react-router-dom to integrate page with eacher other
