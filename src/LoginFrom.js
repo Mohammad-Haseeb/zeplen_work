@@ -79,24 +79,12 @@ export default function Forms() {
    const [ID, setID] = useState("");
    let navigate=useNavigate();
    const [Password, setPassword] = useState("")
+  //  In validation Function we're checking validation of forms
    const Validate=()=>{
-    var strPassword =  Password;
-     
-if (strPassword.match(/[a-z]/g) && strPassword.match( 
-        /[A-Z]/g) && strPassword.match( 
-        /[0-9]/g) && strPassword.match( 
-        /[^a-zA-Z\d]/g) && strPassword.length >= 8) {
-             setID(ID);
+     setPassword(Password)
+            setID(ID);
              GloballyIdSet[1](ID);
-          
-        }
-else {
-    
-    alert("Invalid Password Must Contain number , symbol,upper and lower Case Characters.")
-}
-
-   
-    navigate('Reserver');
+           navigate('Reserver');
    }
   return (
      <>
@@ -107,7 +95,7 @@ else {
         <InputLabel shrink htmlFor="bootstrap-email">
           Name
         </InputLabel>
-        <BootstrapInput type="email" placeholder="Abc@gmail.com"  onChange={(e)=>{setID(e.target.value)}} id="bootstrap-email" required/>
+        <BootstrapInput type="email" placeholder="Abc@gmail.com"  onChange={(e)=>{setID(e.target.value)}} id="bootstrap-email"  required/>
         
       
         <InputLabel shrink htmlFor="bootstrap-password">

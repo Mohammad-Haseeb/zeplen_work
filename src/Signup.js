@@ -14,8 +14,8 @@ let LoginButton=()=>{
 </div>
 );
 }
-
-
+ 
+//  In below line we write the expression to check email validation
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
@@ -63,7 +63,7 @@ class Signup extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
+            // We are calling formValid function to check form validation
     if (formValid(this.state)) {
       console.log(`
         --SUBMITTING--
@@ -82,8 +82,10 @@ class Signup extends Component {
   handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
+    
     let formErrors = { ...this.state.formErrors };
 
+      // In below contions we are checking length of characters
     switch (name) {
       case "firstName":
         formErrors.firstName =

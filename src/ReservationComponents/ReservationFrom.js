@@ -15,6 +15,7 @@ import {
     KeyboardTimePicker,
     KeyboardDatePicker,
   } from '@material-ui/pickers';
+  
    
   
 
@@ -86,8 +87,16 @@ export default function Form(){
     let   [registrationNumber,setRegistrationNumber]=useState(897345);
     let [allotedNumber,setAllotedNumber]=useState(1); 
     
-         
 
+    function daysDiff(d1, d2) {
+      let date1 = new Date(d1);
+      let date2 = new Date(d2);
+      let diff = date2.getTime() - date1.getTime();
+      let msInDay = 1000 * 3600 * 24;
+ 
+          return diff/msInDay;
+    }
+  
     const handleStartTimeChange = (date) => {
 
       setSelectedStartTime(date);
@@ -100,10 +109,24 @@ export default function Form(){
       setSelectedEndDate(date)
     }
     const Validate=(e)=>{
+
       e.preventDefault();
-      setRegistrationNumber(++registrationNumber);
-      setAllotedNumber(++allotedNumber);
-      
+      // In below contion we are ensuring  Selected end Date should be Greater than Start Date
+      if(selectedEndDate.getTime()>=selectedStartDate.getTime() ){
+        // In below Condition we are checking user can only reserve for one month 31 days.We are calling 
+        // function daysDiff to check month condtion 
+         if (daysDiff(selectedStartDate,selectedEndDate)<32){
+            setRegistrationNumber(++registrationNumber);
+            setAllotedNumber(++allotedNumber);
+        }
+        else{
+               
+              alert("You can only reserve it for one month");
+         }
+      }
+    else{
+      alert ("You did not select dates in Right way.Your selected end date is less than Start Date")
+    }
     }
     
     return(
