@@ -5,6 +5,7 @@ import {  useNavigate } from "react-router-dom";
 
 
 
+
 let LoginButton=()=>{
   let navigate =useNavigate();
   return(
@@ -14,6 +15,16 @@ let LoginButton=()=>{
 </div>
 );
 }
+
+let Roots=()=>{
+
+    let navigate =useNavigate();
+
+    navigate('Login/Reserver');
+
+  
+}
+
  
 //  In below line we write the expression to check email validation
 const emailRegex = RegExp(
@@ -59,10 +70,10 @@ class Signup extends Component {
     };
   }
  
-
-
+  
   handleSubmit = e => {
     e.preventDefault();
+
             // We are calling formValid function to check form validation
     if (formValid(this.state)) {
       console.log(`
@@ -72,11 +83,13 @@ class Signup extends Component {
         Email: ${this.state.email}
         Phone: ${this.state.phone}
         Password: ${this.state.password}
+        
       `);
-     
+        <Roots/>
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
+  
   };
 
   handleChange = e => {
@@ -88,7 +101,7 @@ class Signup extends Component {
       // In below contions we are checking length of characters
     switch (name) {
       case "firstName":
-        formErrors.firstName =
+formErrors.firstName =
           value.length < 3 ? "minimum 3 characaters required" : "";
         break;
       case "lastName":
@@ -197,7 +210,7 @@ class Signup extends Component {
               )}
             </div>
             <div className="createAccount">
-              <button type="submit">Create Account</button>
+              <button  type="submit">Create Account</button>
               <large>OR</large>
              
                <LoginButton/>
