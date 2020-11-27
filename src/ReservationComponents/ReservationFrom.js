@@ -82,6 +82,7 @@ export default function Form(){
 
     
     const [selectedStartTime, setSelectedStartTime] = React.useState(new Date('2014-08-18T21:11:54'));
+    const [selectedEndTime, setSelectedEndTime] = React.useState(new Date('2014-08-18T21:11:54'));
     const [selectedStartDate, setSelectedStartDate] = React.useState(new Date('2014-08-18T21:11:54'));
     const [selectedEndDate, setSelectedEndDate] = React.useState(new Date('2014-08-18T21:11:54'));
     let   [registrationNumber,setRegistrationNumber]=useState(897345);
@@ -97,6 +98,9 @@ export default function Form(){
           return diff/msInDay;
     }
   
+     const handleEndTimeChange =(date)=>{
+            setSelectedEndTime(date);
+     }
     const handleStartTimeChange = (date) => {
 
       setSelectedStartTime(date);
@@ -156,6 +160,18 @@ export default function Form(){
        label="Select Start Time"
        value={selectedStartTime}
        onChange={handleStartTimeChange}
+       KeyboardButtonProps={{
+         'aria-label': 'change time',
+         
+       }}
+       required
+     />
+     <KeyboardTimePicker
+       margin="normal"
+       id="time-picker"
+       label="Select End Time"
+       value={selectedEndTime}
+       onChange={handleEndTimeChange}
        KeyboardButtonProps={{
          'aria-label': 'change time',
          
