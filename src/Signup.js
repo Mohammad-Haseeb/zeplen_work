@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component, useState} from "react";
 import "./App.css";
 import {  useNavigate,} from "react-router-dom";
 
@@ -17,9 +17,7 @@ let LoginButton=()=>{
 
 let Roots=()=>{
 
-    let navigate =useNavigate();
-
-    navigate('Login/Reserver');
+    
 
   
 }
@@ -45,57 +43,55 @@ const formValid = ({ formErrors, ...rest }) => {
   return valid;
 };
 
-class Signup extends Component {
-  
-  constructor(props) {
-    super(props);
-    
+ function Signup  (){
+  let navigate=useNavigate();
+  const [state, setstate] = useState({
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null,
 
-    this.state = {
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
+    phone: null,
+    formErrors: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      dob:"",
+      phone:"",
+      password: ""
+    }
+  });
   
-      phone: null,
-      formErrors: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        dob:"",
-        phone:"",
-        password: ""
-      }
-    };
-  }
  
   
-  handleSubmit = e => {
+  let handleSubmit = e => {
+    
     e.preventDefault();
-
+    navigate("/Login/Reserver")
             // We are calling formValid function to check form validation
-    if (formValid(this.state)) {
+    if (formValid(state)) {
       console.log(`
         --SUBMITTING--
-        First Name: ${this.state.firstName}
-        Last Name: ${this.state.lastName}
-        Email: ${this.state.email}
-        Phone: ${this.state.phone}
-        Password: ${this.state.password}
+        First Name: ${state.firstName}
+        Last Name: ${state.lastName}
+        Email: ${state.email}
+        Phone: ${state.phone}
+        Password: ${state.password}
         
       `);
         <Roots/>
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
+
   
   };
 
-  handleChange = e => {
+ let handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
     
-    let formErrors = { ...this.state.formErrors };
+    let formErrors = { ...state.formErrors };
 
       // In below contions we are checking length of characters
     switch (name) {
@@ -124,19 +120,19 @@ formErrors.firstName =
       default:
         break;
     }
-
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+      
   };
  
-  render() {
-    const { formErrors } = this.state;
+  
 
+  const { formErrors } = state;
 
     return (
+      
       <div className="wrapper">
         <div className="form-wrapper">
           <h1>Create Account To Manage Your Parking</h1>
-          <form onSubmit={this.handleSubmit} noValidate>
+          <form onSubmit={handleSubmit} >
             <div className="firstName">
               <label htmlFor="firstName">First Name</label>
               <input
@@ -145,7 +141,8 @@ formErrors.firstName =
                 type="text"
                 name="firstName"
                 noValidate
-                onChange={this.handleChange}
+                onChange={handleChange}
+                required
               />
               {formErrors.firstName.length > 0 && (
                 <span className="errorMessage">{formErrors.firstName}</span>
@@ -159,7 +156,8 @@ formErrors.firstName =
                 type="text"
                 name="lastName"
                 noValidate
-                onChange={this.handleChange}
+                onChange={handleChange}
+                required
               />
               {formErrors.lastName.length > 0 && (
                 <span className="errorMessage">{formErrors.lastName}</span>
@@ -175,7 +173,8 @@ formErrors.firstName =
                 type="text"
                 name="phone"
                 noValidate
-                onChange={this.handleChange}
+                onChange={handleChange}
+                required
               />
               {formErrors.phone.length > 0 && (
                 <span className="errorMessage">{formErrors.phone}</span>
@@ -189,7 +188,8 @@ formErrors.firstName =
                 type="email"
                 name="email"
                 noValidate
-                onChange={this.handleChange}
+                onChange={handleChange}
+                required
               />
               {formErrors.email.length > 0 && (
                 <span className="errorMessage">{formErrors.email}</span>
@@ -203,7 +203,10 @@ formErrors.firstName =
                 type="password"
                 name="password"
                 noValidate
-                onChange={this.handleChange}
+                onChange={handleChange}
+                minLength="2"
+                maxLength="9"
+                required
               />
               {formErrors.password.length > 0 && (
                 <span className="errorMessage">{formErrors.password}</span>
@@ -222,6 +225,6 @@ formErrors.firstName =
       </div>
     );
   }
-}
+
 
 export default Signup;
