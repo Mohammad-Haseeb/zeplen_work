@@ -1,4 +1,4 @@
-import React, { Component, useState} from "react";
+import React, {  useState} from "react";
 import "./App.css";
 import {  useNavigate,} from "react-router-dom";
 
@@ -15,12 +15,7 @@ let LoginButton=()=>{
 );
 }
 
-let Roots=()=>{
 
-    
-
-  
-}
 
  
 //  In below line we write the expression to check email validation
@@ -79,7 +74,8 @@ const formValid = ({ formErrors, ...rest }) => {
         Password: ${state.password}
         
       `);
-        <Roots/>
+      setstate(state)
+       
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
