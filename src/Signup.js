@@ -136,7 +136,8 @@ formErrors.firstName =
                 placeholder="First Name"
                 type="text"
                 name="firstName"
-                noValidate
+                minLength="3"
+                maxLength="19"
                 onChange={handleChange}
                 required
               />
@@ -151,7 +152,8 @@ formErrors.firstName =
                 placeholder="Last Name"
                 type="text"
                 name="lastName"
-                noValidate
+                minLength="3"
+                maxLength="19"
                 onChange={handleChange}
                 required
               />
@@ -168,7 +170,8 @@ formErrors.firstName =
                 placeholder="Phone Number"
                 type="text"
                 name="phone"
-                noValidate
+                minLength="7"
+                maxLength="19"
                 onChange={handleChange}
                 required
               />
@@ -183,7 +186,6 @@ formErrors.firstName =
                 placeholder="Email"
                 type="email"
                 name="email"
-                noValidate
                 onChange={handleChange}
                 required
               />
